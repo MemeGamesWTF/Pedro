@@ -25,6 +25,7 @@
           navigator.serviceWorker.register("ServiceWorker.js");
         }
       });
+	window.unityInstance = null;
 
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -59,9 +60,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js";
       var config = {
-        dataUrl: buildUrl + "/37330f7564015594b26096e762e9f2a9.data",
-        frameworkUrl: buildUrl + "/da8acbbaa03ae17d169fbffa3f8128bb.framework.js",
-        codeUrl: buildUrl + "/ebc78552376cbfcdcac52e056aed58dc.wasm",
+        dataUrl: buildUrl + "/31e8d72b244c935786155cf6d4d3667e.data",
+        frameworkUrl: buildUrl + "/8a03697d5a45321c6cead196ed63defe.framework.js",
+        codeUrl: buildUrl + "/61d77b05f0c293faad0e3854337c3c9b.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "MemegamesWTF",
         productName: "Pedro",
@@ -93,6 +94,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
+	  window.unityInstance = unityInstance;
         }).catch((message) => {
           alert(message);
         });
